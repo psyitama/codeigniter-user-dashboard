@@ -43,6 +43,9 @@ class User_model extends CI_Model
         } else if ($user['action'] == 'change_description') {
             $query = "UPDATE users SET description = ?, updated_at = ? WHERE id = ?";
             $values = array($user['description'], date("Y-m-d, H:i:s"), $user['id']);
+        } else if ($user['action'] == 'change_overall') {
+            $query = "UPDATE users SET first_name = ?, last_name = ?, email = ?, user_level=?, updated_at = ? WHERE id = ?";
+            $values = array($user['first_name'], $user['last_name'], $user['email'], $user['user_level'], date("Y-m-d, H:i:s"), $user['id']);
         }
         return $this->db->query($query, $values);
     }

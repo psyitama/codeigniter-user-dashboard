@@ -27,9 +27,10 @@ if ($this->session->userdata('is_logged_in') == true) {
 
 <div class="container">
     <div class="jumbotron mt-3">
-        <h1>Bootstrap Tutorial</h1>
-        <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on
-            the web.</p>
+        <h1>User Dashboard</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem placeat, iste recusandae adipisci
+            corrupti illo officiis in optio quia rem velit molestias. Ullam in alias molestias cumque facilis eaque
+            maiores.</p>
         <button type="button" class="btn btn-primary">Start</button>
     </div>
 </div>
@@ -37,19 +38,19 @@ if ($this->session->userdata('is_logged_in') == true) {
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h6>asdsad</h6>
+            <p class="font-weight-bold">Lorem</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo vero voluptatem consequuntur culpa eligendi
                 et optio dolore cupiditate architecto. Molestiae rem debitis harum voluptatem excepturi mollitia
                 incidunt similique esse ut.</p>
         </div>
         <div class="col-md-4">
-            <h6>asdsad</h6>
+            <p class="font-weight-bold">Lorem</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo vero voluptatem consequuntur culpa eligendi
                 et optio dolore cupiditate architecto. Molestiae rem debitis harum voluptatem excepturi mollitia
                 incidunt similique esse ut.</p>
         </div>
         <div class="col-md-4">
-            <p class="font-weight-bold">Bold text.</p>
+            <p class="font-weight-bold">Lorem</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo vero voluptatem consequuntur culpa eligendi
                 et optio dolore cupiditate architecto. Molestiae rem debitis harum voluptatem excepturi mollitia
                 incidunt similique esse ut.</p>

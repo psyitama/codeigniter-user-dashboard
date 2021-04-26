@@ -9,12 +9,15 @@ class Admin extends CI_Controller
         $this->load->view('admin/admin', $data);
         $this->load->view('templates/footer');
     }
+
+    //add new user view
     function new () {
         $this->load->view('templates/header');
         $this->load->view('admin/new');
         $this->load->view('templates/footer');
     }
 
+    //edit user view
     public function edit_user($id)
     {
         $data['user'] = $this->user->get_user_by_id($id);
@@ -24,6 +27,7 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    //add new user process
     public function add_user()
     {
         $result = $this->user->validate_all($this->input->post());
@@ -45,6 +49,7 @@ class Admin extends CI_Controller
         }
     }
 
+    //update user process
     public function update_user_overall()
     {
         if ($this->input->post('action') == 'change_personal_info') {
@@ -56,7 +61,6 @@ class Admin extends CI_Controller
                     "email_error" => form_error('email'),
                 );
                 $this->session->set_flashdata($validation_errors);
-                var_dump($validation_errors);
             } else {
                 $this->user->update_user($this->input->post());
             }
@@ -73,10 +77,23 @@ class Admin extends CI_Controller
             }
         } else if ($this->input->post('action') == 'change_description') {
             $this->user->update_user($this->input->post());
+        } else if ($this->input->post('action') == 'change_overall') {
+            $result = $this->user->validate_personal_info($this->input->post());
+            if ($result != 'valid') {
+                $validation_errors = array(
+                    "first_name_error" => form_error('first_name'),
+                    "last_name_error" => form_error('last_name'),
+                    "email_error" => form_error('email'),
+                );
+                $this->session->set_flashdata($validation_errors);
+            } else {
+                $this->user->update_user($this->input->post());
+            }
         }
         redirect(base_url() . 'users/edit/' . $this->input->post('id'));
     }
 
+    //delete a user by their id
     public function remove_user($user_id)
     {
         if ($this->session->userdata('user_level') != 'admin') {

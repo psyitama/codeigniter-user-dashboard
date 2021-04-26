@@ -31,16 +31,19 @@
                 <label>Email address:</label>
                 <input type="email" class="form-control" placeholder="Enter email" name="email"
                     value="<?=$user['email']?>">
+                <span class="text-danger"><?=$this->session->flashdata('email_error')?></span>
             </div>
             <div class="form-group">
                 <label>First Name</label>
                 <input type="text" class="form-control" placeholder="Enter first name" name="first_name"
                     value="<?=$user['first_name']?>">
+                <span class="text-danger"><?=$this->session->flashdata('first_name_error')?></span>
             </div>
             <div class="form-group">
                 <label>Last Name</label>
                 <input type="text" class="form-control" placeholder="Enter last name" name="last_name"
                     value="<?=$user['last_name']?>">
+                <span class="text-danger"><?=$this->session->flashdata('last_name_error')?></span>
             </div>
             <div class="text-right">
                 <input type="submit" class="btn btn-success mb-3" value="Save"></input>
@@ -52,9 +55,11 @@
             <h3>Change Password</h3>
             <input type="hidden" name="action" value="change_password">
             <input type="hidden" name="id" value="<?=$user['id']?>">
+            <span class="text-danger"><?=$this->session->flashdata('password_error')?></span>
             <div class="form-group">
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" placeholder="Enter password" name="password">
+                <span class="text-danger"><?=$this->session->flashdata('confirm_password_error')?></span>
             </div>
             <div class="form-group">
                 <label for="pwd">Confirm Password:</label>

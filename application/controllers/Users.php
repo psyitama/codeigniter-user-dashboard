@@ -9,6 +9,8 @@ class Users extends CI_Controller
         $this->load->view('user/dashboard', $data);
         $this->load->view('templates/footer');
     }
+
+    //show user by their id
     public function show($id)
     {
         $data = array(
@@ -22,6 +24,7 @@ class Users extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    //user registration process
     public function create()
     {
         $result = $this->user->validate_all($this->input->post());
@@ -55,6 +58,7 @@ class Users extends CI_Controller
         }
     }
 
+    //update profile view
     public function edit()
     {
         $data['user'] = $this->user->get_user_by_email($this->session->userdata('email'));
@@ -64,6 +68,7 @@ class Users extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    //user signin process
     public function login()
     {
         $email = $this->input->post('email');
@@ -89,12 +94,14 @@ class Users extends CI_Controller
         }
     }
 
+    //logout user and destroy their sessions
     public function logout()
     {
         $this->session->sess_destroy();
         redirect(base_url());
     }
 
+    //check user level for redirect purposes
     public function check_user_level($email)
     {
         $user = $this->user->get_user_by_email($email);
@@ -105,6 +112,7 @@ class Users extends CI_Controller
         }
     }
 
+    //update profile process
     public function update_user_info()
     {
         if ($this->input->post('action') == 'change_personal_info') {
